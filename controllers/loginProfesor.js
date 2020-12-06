@@ -1,10 +1,9 @@
-const validationLogin = require("../utils/validation/loginValidation")
-const jwt = require('jsonwebtoken')
+const validationLogin = require('../utils/validation/loginValidation')
 const checkCredentials = require('../utils/validation/passemail')
-const alumnModel = require('../model/alumno/alumno')
+const jwt = require('jsonwebtoken')
+const profesorModel = require('../model/profesor/profesor')
 
-const loginController = async (req, res) => {
-    
+const loginController = async (req, res)=>{
     try {
         const isValid = validationLogin.validate({ ...req.body })
         if (isValid.error) {
@@ -14,7 +13,7 @@ const loginController = async (req, res) => {
                 sta: "error"
             })
         } else {
-            const data = await alumnModel.findOne({email: req.body.email})
+            const data = await profesorModel.findOne({email: req.body.email})
             
             if (data && checkCredentials(req.body.email, req.body.password, data.email, data.password)) {
             
@@ -33,7 +32,5 @@ const loginController = async (req, res) => {
     }
 
 }
-
-
 
 module.exports = loginController

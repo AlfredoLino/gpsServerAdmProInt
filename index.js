@@ -27,8 +27,9 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }).then(
 const routes_alumno_create = require('./routes/alumno/create')//--/createAlumno
 const routeAlumnLogin = require('./routes/Login/Alumno') //--/login/alumno
 const routeCreateProyecto = require('./routes/Profesor/createProject')
-
+const routeProfesorLogin = require('./routes/Login/Profesor')
 app.use(routeAlumnLogin)
+app.use(routeProfesorLogin)
 app.use(routes_alumno_create)
 app.use(routeCreateProyecto)
 
