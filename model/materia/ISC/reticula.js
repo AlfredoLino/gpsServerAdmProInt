@@ -41,3 +41,5 @@ const reticulaSchema = mongoose.Schema(
 
 const reticulaModel = mongoose.model('Reticula', reticulaSchema);
 module.exports = reticulaModel;
+
+

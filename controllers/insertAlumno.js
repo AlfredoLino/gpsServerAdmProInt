@@ -6,12 +6,13 @@ const modelAlumnos = require('../model/alumno/alumno')
  * @param {Response} res Contiene los metodos para efectuar una respuesta 
  */
 const insertAlumno = async (req, res) => {
-  const newAlumno = new modelAlumnos({ ...req.body });
+  const newAlumno = new modelAlumnos({ ...req.body, date: "2020-12-05" });
   try {
     const alumno = await newAlumno.save();
     if (alumno) {
       return res.status(201).json({
         message: "Alumno creado",
+        alumno
       });
     } else {
       return res.status(401).json({

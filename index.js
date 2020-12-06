@@ -1,8 +1,6 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
-
-
 app.use(express.json())
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,6 +26,13 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }).then(
 
 const routes_alumno_create = require('./routes/alumno/create')//--/createAlumno
 const routeAlumnLogin = require('./routes/Login/Alumno') //--/login/alumno
+const routeCreateProyecto = require('./routes/Profesor/createProject')
 
 app.use(routeAlumnLogin)
 app.use(routes_alumno_create)
+app.use(routeCreateProyecto)
+
+/*
+const testDate = new Date("2020-05-12").toISOString()
+console.log(new Date(testDate))
+*/

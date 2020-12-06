@@ -20,6 +20,10 @@ const alumnoSchema = new Schema({
     password:{
         type: String,
         required: true
+    },
+    date:{
+        type: Date,
+        required: true
     }
 })
 
