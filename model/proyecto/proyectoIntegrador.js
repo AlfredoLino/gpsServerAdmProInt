@@ -9,15 +9,13 @@ const actividadSchema = mongoose.Schema(
             required: true
         },
         responsables: [String],
-        perdiodo:
-        {
-            inicio: Date,
-            fin: Date
-        },
+        entrega: Date,
         entregado:
         {
             check: Boolean,
-            fecha: Date
+            fecha: Date,
+            archivo: Buffer,
+            comentario: String
         }
 
     }
@@ -25,46 +23,43 @@ const actividadSchema = mongoose.Schema(
 
 const proyectoSchema = mongoose.Schema(
     {
-        instituciones: 
+        institucion: 
         {
-            type: Array,
+            type: String,
             required: true    
         },
-        depAcademic:
+        departamentos:
         {
             type: Array,
             required: true,
         },
-        title:
-        {
-            type: String,
-            required: true
-        },
         coordinador:
         {
             type: String,
-            required: true
+            required: false
         },
-        semestre:
-        {
+        materiaEje:{
             type: String,
             required: true
         },
-        colabs:
+        colab:
         {
-            type: Array,
+            type: String,
             required: true
         },
         profResp:
         {
-            type: Array,
+            type: String,
             required: true
         },
-        estudiantes:
+        alumnos:
         [
             {
                 nombre : String,
-                ncontrol: String
+                ncontrol: String,
+                semestre: String,
+                apellidos: String,
+                departamento: String
             }
         ],
         cliente:
@@ -75,7 +70,7 @@ const proyectoSchema = mongoose.Schema(
         planEstudio:
         {
             type: String,
-            required: true
+            required: false
         },
         periodo:
         {
@@ -84,25 +79,38 @@ const proyectoSchema = mongoose.Schema(
         },
         areaConoc:
         {
-            type: Array,
+            type: String,
             required: true
         },
-        tipoEjecucion:
+        asignaturas:[
+            {
+                nombre: String,
+                semestre: String,
+                compDes: String,
+                compPrev: String,
+                etapa_one: String,
+                etapa_two: String,
+                etapa_three: String,
+
+            }
+        ]
+        ,
+        tipoEjec:
         {
             type: String,
             required: true
         },
-        tituloProyecto:
+        tituloProInt:
         {
             type: String,
             required: true
         },
         tipoProyecto:
         {
-            formativo: Boolean,
-            resolutivo: Boolean
+            type: String,
+            required: true
         },
-        plantProInt:
+        planteamiento:
         {
             type: String,
             required: true
@@ -117,7 +125,7 @@ const proyectoSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        limitRes:
+        limityRest:
         {
             type: String,
             required: true
@@ -129,7 +137,7 @@ const proyectoSchema = mongoose.Schema(
         impactoProyecto:
         {
             type: String,
-            required: true
+            required: false
         },
         producto: [String]
     }

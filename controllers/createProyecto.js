@@ -1,63 +1,13 @@
 const modelProyect = require('../model/proyecto/proyectoIntegrador')
 
 const controller = async (req, res)=>{
-    const 
-    {
-        instituciones,
-        depAcademic,
-        title,
-        coordinador,
-        semestre,
-        colabs,
-        profResp,
-        estudiantes,
-        cliente,
-        planEstudio,
-        periodo,
-        areaConoc,
-        tipoEjecucion,
-        tituloProyecto,
-        tipoProyecto,
-        plantProInt,
-        justificacion,
-        alcances,
-        limitRes,
-        cronograma,
-        impactoProyecto,
-        producto,
-
-    } = req.body
-
     try {
-        const req = new modelProyect
+        const newProject = new modelProyect
         (
-            {
-                instituciones,
-                depAcademic,
-                title,
-                coordinador,
-                semestre,
-                colabs,
-                profResp,
-                estudiantes,
-                cliente,
-                planEstudio,
-                periodo,
-                areaConoc,
-                tipoEjecucion,
-                tituloProyecto,
-                tipoProyecto,
-                plantProInt,
-                justificacion,
-                alcances,
-                limitRes,
-                cronograma,
-                impactoProyecto,
-                producto,
-            }
+            {...req.body}
         )
 
-        const data = await req.save()
+        const data = await newProject.save()
         if(data){
             return res.status(201).json(
                 {
@@ -71,8 +21,8 @@ const controller = async (req, res)=>{
             }
         )
     }catch(error) {
-        res.status(400).json(
-            error
+        res.status(400).json({
+            ...error}
         )
     }
 

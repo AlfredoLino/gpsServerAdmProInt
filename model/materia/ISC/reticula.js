@@ -27,6 +27,11 @@ const materiaSchema = mongoose.Schema(
 
 const reticulaSchema = mongoose.Schema(
     {
+        dep: 
+        {
+            type: String,
+            required: true
+        },
         studyPlan:
         {
             type: String,

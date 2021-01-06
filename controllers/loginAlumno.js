@@ -19,7 +19,10 @@ const loginController = async (req, res) => {
             if (data && checkCredentials(req.body.email, req.body.password, data.email, data.password)) {
             
                 const token = jwt.sign({ email: req.body.email }, process.env.JWTKEY)
-                return res.status(201).json({ token })
+                return res.status(201).json({ 
+                    token,
+                    user:data
+                 })
             }
             res.status(404).json(
                 {

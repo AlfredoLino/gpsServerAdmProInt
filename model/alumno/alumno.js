@@ -5,6 +5,10 @@ const alumnoSchema = new Schema({
         type: String,
         required: true
     },
+    departamento:{
+        type: String,
+        required: true
+    },
     nombre: {
         type: String,
         required: true
@@ -14,6 +18,10 @@ const alumnoSchema = new Schema({
         required: true,
     },
     email:{
+        type: String,
+        required: true
+    },
+    semestre:{
         type: String,
         required: true
     },
