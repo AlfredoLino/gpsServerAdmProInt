@@ -4,7 +4,6 @@ const fs = require("fs")
 const controller = async (req, res)=>{
     const {filePath, fecha, titulo, actividad} = req.body
     console.log(filePath)
-    console.log("hola")
     try {
         const fileBuffer = fs.readFileSync(filePath)
         const doc = await model.findOne( {tituloProInt: titulo} )

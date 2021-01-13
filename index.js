@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
-app.use(express.json())
+app.use(express.json({limit: '2000kb'}))
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
@@ -34,7 +34,9 @@ const routeGetProjects = require("./routes/get/proyecto")
 const routeGetProjectsAlumno = require("./routes/alumno/getProjects")
 const routeGetOneProject = require("./routes/alumno/getProject")
 const routeToDownload = require('./routes/Profesor/download')
+const routeFormatDown = require('./routes/download/dl')
 
+app.use(routeFormatDown)
 app.use(routeToDownload)
 app.use(routeGetOneProject)
 app.use(routeGetProjectsAlumno)
