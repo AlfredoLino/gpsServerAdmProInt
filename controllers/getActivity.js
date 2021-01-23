@@ -24,7 +24,6 @@ const controllerDownload = async (req, res, next) =>{
                     const newFile = new Buffer.from(act.entregado.archivo)
                     fs.writeFileSync('./controllers/docs/actividad.pdf', newFile)
                     res.download('./controllers/docs/actividad.pdf')
-                    
                 }
             })
 
