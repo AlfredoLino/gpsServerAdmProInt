@@ -1,4 +1,3 @@
-const { boolean } = require('joi');
 const mongoose = require('mongoose');
 
 const actividadSchema = mongoose.Schema(
@@ -18,6 +17,23 @@ const actividadSchema = mongoose.Schema(
             comentario: String
         }
 
+    }
+)
+
+const comments = mongoose.Schema(
+    {
+        date :{
+            type: String,
+            required: true
+        },
+        text : {
+            type: String,
+            required: true,
+        },
+        name : {
+            type: String,
+            required: true,
+        }
     }
 )
 

@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose');
-
+// 33 28 77 04 35 201 || 2055332769780781653608
 const alumnoSchema = new Schema({
     ncontrol:{
         type: String,
@@ -36,3 +36,4 @@ const alumnoSchema = new Schema({
 })
 
 module.exports = model('Alumno', alumnoSchema);
+//cmendez@mx1.ibm.com
