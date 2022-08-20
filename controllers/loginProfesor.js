@@ -15,7 +15,7 @@ const loginController = async (req, res)=>{
         } else {
             
             const data = await profesorModel.findOne({email: req.body.email})
-            
+            // #d5a041
             if (data && checkCredentials(req.body.email, req.body.password, data.email, data.password)) {
             
                 const token = jwt.sign({ email: req.body.email }, process.env.JWTKEY)

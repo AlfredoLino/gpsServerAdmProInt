@@ -68,6 +68,11 @@ const proyectoSchema = mongoose.Schema(
             type: String,
             required: true
         },
+        profRespName:
+        {
+            type: String,
+            required: true
+        },
         alumnos:
         [
             {
@@ -155,7 +160,8 @@ const proyectoSchema = mongoose.Schema(
             type: String,
             required: false
         },
-        producto: [String]
+        producto: [String],
+        comments: [comments],
     }
 )
 
